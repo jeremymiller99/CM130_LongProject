@@ -10,47 +10,48 @@ public class QuestInstance
 
     public void TryActivate(int currentDay, string timeZone)
     {
-        if (state == QuestState.Inactive &&
-            currentDay == data.requiredDay &&
-            timeZone == data.requiredTimeZone)
+        if (state != QuestState.Inactive) return;
+
+        if (currentDay == data.requiredDay && timeZone == data.requiredTimeZone)
         {
-            state = data.autoStart ? QuestState.Active : QuestState.Available;
-            Debug.Log($"Quest Available: {data.questName}");
+            state = data.autoStart ? QuestState.AvailableActive : QuestState.AvailableInactive;
+            Debug.Log($"Quest Available: {data.questName} (State: {state})");
         }
     }
 
     public void StartQuest(int currentDay, string timeZone)
     {
-        if (state == QuestState.Available)
-        {
-            wasStartedLate = currentDay > data.requiredDay || timeZone != data.requiredTimeZone;
-            state = QuestState.Active;
-            Debug.Log($"Started quest: {data.questName} (Late: {wasStartedLate})");
-        }
+        if (state != QuestState.AvailableInactive) return;
+
+        wasStartedLate = currentDay > data.requiredDay || timeZone != data.requiredTimeZone;
+        state = QuestState.AvailableActive;
+        Debug.Log($"Started quest: {data.questName} (Late: {wasStartedLate})");
     }
 
     public void CompleteQuest(ReputationManager repManager)
     {
-        if (state == QuestState.Active && taskCompleted)
+        if (state != QuestState.AvailableActive || !taskCompleted || state == QuestState.Completed) 
         {
-            state = QuestState.Completed;
-            int rep = wasStartedLate ? data.repRewardLate : data.repRewardOnTime;
-            repManager.AddReputation(rep);
-            Debug.Log($"Completed quest: {data.questName} | Rep: {rep}");
+            Debug.LogWarning($"Cannot complete quest {data.questName}: Invalid state ({state}) or task not completed ({taskCompleted})");
+            return;
         }
-        else if (state == QuestState.Active && !taskCompleted)
-        {
-            Debug.Log($"Quest '{data.questName}' is active, but task not completed.");
-        }
+
+        state = QuestState.Completed;
+        int rep = wasStartedLate ? data.repRewardLate : data.repRewardOnTime;
+        repManager.AddReputation(rep);
+        Debug.Log($"Completed quest: {data.questName} | Rep: {rep}");
     }
 
     public bool MarkTaskAsComplete()
     {
-        if (state == QuestState.Active && !taskCompleted)
-        {
-            taskCompleted = true;
-            return true;
-        }
-        return false;
+        if (state != QuestState.AvailableActive || taskCompleted) return false;
+
+        taskCompleted = true;
+        Debug.Log($"Task completed for quest: {data.questName}");
+        return true;
     }
+
+    public bool IsAvailable() => state == QuestState.AvailableInactive || state == QuestState.AvailableActive;
+    public bool IsActive() => state == QuestState.AvailableActive;
+    public bool IsCompleted() => state == QuestState.Completed;
 }

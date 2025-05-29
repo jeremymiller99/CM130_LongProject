@@ -11,10 +11,10 @@ public class DayNightCycleManager : MonoBehaviour
     public Light sun;
 
     [Header("Events (Optional Hooks)")]
-    public UnityEvent OnMorning;     // 6am–12pm
-    public UnityEvent OnAfternoon;   // 12pm–6pm
-    public UnityEvent OnEvening;     // 6pm–12am
-    public UnityEvent OnNight;       // 12am–6am
+    public UnityEvent OnMorning;     // 6amï¿½12pm
+    public UnityEvent OnAfternoon;   // 12pmï¿½6pm
+    public UnityEvent OnEvening;     // 6pmï¿½12am
+    public UnityEvent OnNight;       // 12amï¿½6am
     public UnityEvent OnNewDay;
     public UnityEvent OnEndOfWeek;
 
@@ -61,7 +61,7 @@ public class DayNightCycleManager : MonoBehaviour
             if (currentDay > totalDays)
             {
                 OnEndOfWeek?.Invoke();
-                Debug.Log("Game Over — 7 days completed.");
+                Debug.Log("Game Over ï¿½ 7 days completed.");
             }
             else
             {
@@ -90,5 +90,59 @@ public class DayNightCycleManager : MonoBehaviour
     public int GetCurrentDay() => currentDay;
     public string GetCurrentTimeZone() => periodNames[lastPeriodIndex];
     public float GetCurrentTimeOfDay() => (currentTime % realSecondsPerDay) / realSecondsPerDay;
-
+    
+    /// <summary>
+    /// Get the current hour of the day (0-24)
+    /// Used by NPCStateMachine for time-based behavior
+    /// </summary>
+    public float GetCurrentHour()
+    {
+        float dayTime = GetCurrentTimeOfDay();
+        return dayTime * 24f;
+    }
+    
+    /// <summary>
+    /// Get the current hour as an integer (0-23)
+    /// </summary>
+    public int GetCurrentHourInt()
+    {
+        return Mathf.FloorToInt(GetCurrentHour());
+    }
+    
+    /// <summary>
+    /// Get the current minute within the hour (0-59)
+    /// </summary>
+    public int GetCurrentMinute()
+    {
+        float hour = GetCurrentHour();
+        float minutes = (hour - Mathf.Floor(hour)) * 60f;
+        return Mathf.FloorToInt(minutes);
+    }
+    
+    /// <summary>
+    /// Get a formatted time string (e.g., "14:30")
+    /// </summary>
+    public string GetFormattedTime()
+    {
+        int hour = GetCurrentHourInt();
+        int minute = GetCurrentMinute();
+        return $"{hour:D2}:{minute:D2}";
+    }
+    
+    /// <summary>
+    /// Check if it's currently night time (useful for NPC behavior)
+    /// </summary>
+    public bool IsNightTime()
+    {
+        float hour = GetCurrentHour();
+        return hour >= 22f || hour < 6f; // 10 PM to 6 AM
+    }
+    
+    /// <summary>
+    /// Check if it's currently day time (useful for NPC behavior)
+    /// </summary>
+    public bool IsDayTime()
+    {
+        return !IsNightTime();
+    }
 }

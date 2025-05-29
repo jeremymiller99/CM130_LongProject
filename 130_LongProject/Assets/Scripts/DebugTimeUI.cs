@@ -6,6 +6,7 @@ public class DebugTimeUI : MonoBehaviour
 {
     public TMP_Text timeText;
     public TMP_Text questText;
+    public TMP_Text questStatusText;
     public Button addHourButton;
 
     private DayNightCycleManager timeManager;
@@ -38,18 +39,20 @@ public class DebugTimeUI : MonoBehaviour
 
         timeText.text = $"<b>Day:</b> {day}\n<b>Time:</b> {hour12:00}:{minute:00} {ampm}\n<b>Zone:</b> {zone}";
 
-
         // Show all active quests
         string quests = "";
         foreach (var quest in questManager.GetAllQuests())
         {
-            if (quest.state == QuestState.Active)
-                quests += $"• {quest.data.questName} (active)\n";
-            else if (quest.state == QuestState.Available)
-                quests += $"• {quest.data.questName} (available)\n";
+            if (quest.state == QuestState.AvailableActive)
+                quests += $"â€¢ {quest.data.questName} (active)\n";
+            else if (quest.state == QuestState.AvailableInactive)
+                quests += $"â€¢ {quest.data.questName} (available)\n";
         }
 
         questText.text = $"<b>Quests:</b>\n{quests}";
+        
+        // Update quest status text
+        UpdateQuestStatus();
     }
 
     void AddHours(float hours)
@@ -57,5 +60,25 @@ public class DebugTimeUI : MonoBehaviour
         float secondsToAdd = (hours / 24f) * timeManager.realSecondsPerDay;
         Time.timeScale = 100f; // Optional: increase time scale for speed-up effect
         timeManager.SkipTime(secondsToAdd);
+    }
+
+    private void UpdateQuestStatus()
+    {
+        if (questStatusText == null) return;
+        
+        questStatusText.text = "Quest Status:\n";
+        foreach (QuestInstance quest in questManager.GetAllQuests())
+        {
+            string state = quest.state switch
+            {
+                QuestState.Inactive => "Inactive",
+                QuestState.AvailableInactive => "Available",
+                QuestState.AvailableActive => "Active",
+                QuestState.Completed => "Completed",
+                QuestState.Failed => "Failed",
+                _ => "Unknown"
+            };
+            questStatusText.text += $"{quest.data.questName}: {state}\n";
+        }
     }
 }

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1881585a56cf6e44b10076200d9bd12, type: 3}
+  m_Name: Jane Doe
+  m_EditorClassIdentifier: 
+  npcName: Jane Doe
+  portrait: {fileID: 0}
+  greetingDialogue: Hey there!
+  questDialogue: I could really use a hand making dinner tonight, can you bring me
+    3 wild mushrooms?
+  questAcceptDialogue: Great! Be sure to come back to me when you've collected everything.
+  questCompletedDialogue: Thanks so much! I'll be sure to give you the leftovers.
+  noQuestDialogue: I don't have any tasks for you right now.
+  insufficientRepDialogue: I don't know you well enough to trust you with this task.
+  questInProgressDialogue: Have you completed the task I gave you?
+  loreDialogue: My grandma once told me long ago an evil power cursed this town,
+    that crazy old hag!
+  noLoreDialogue: I don't have much to say about that.
+  tradeDialogue: Would you like to buy or sell something?
+  noTradeDialogue: I'm not trading anything right now.
+  generalDialogue: Nice day today!
+  lowRepDialogue: Hello, how are you doing?
+  highRepDialogue: Hey, [Player]!
+  reputationThreshold: 25
+  assignedQuest: {fileID: 11400000, guid: 686c48967a5bd2e4d84f08dfbc5dd07c, type: 2}
+  hasQuests: 1
+  hasLore: 1
+  hasTrade: 0
+  hasGeneralChat: 1
