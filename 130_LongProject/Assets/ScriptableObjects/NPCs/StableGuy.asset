@@ -13,8 +13,27 @@ MonoBehaviour:
   m_Name: StableGuy
   m_EditorClassIdentifier: 
   npcName: Farmer Joe
-  defaultDialogue: I'll give you one of my horses if you do me a favor.
-  lowRepDialogue: Fuck you pig
-  highRepDialogue: I love you
-  reputationThreshold: 9
+  portrait: {fileID: 0}
+  greetingDialogue: Hello there!
+  questDialogue: Locate the blueprint behind my house, it has a plan for the greatest
+    machine our town has ever seen!
+  questAcceptDialogue: Good luck! Let me know when you find it.
+  questCompletedDialogue: Good work! Glad the old lady didn't throw it out on me.
+    Now that you have the plan, gather the materials needed and construct this machine!
+  noQuestDialogue: I don't have any tasks for you right now.
+  insufficientRepDialogue: I don't know you well enough to trust you with this task.
+  questInProgressDialogue: Have you completed the task I gave you?
+  loreDialogue: No one has ever travelled beyond the mountains. I hope someone does
+    one day.
+  noLoreDialogue: I don't have much to say about that.
+  tradeDialogue: Would you like to buy or sell something?
+  noTradeDialogue: I'm not trading anything right now.
+  generalDialogue: There should be a blueprint behind my house, go check it out.
+  lowRepDialogue: Hey, how are you?
+  highRepDialogue: Hey, how are you?
+  reputationThreshold: 0
   assignedQuest: {fileID: 11400000, guid: 01e386e8fe3a4074288a0112057f1383, type: 2}
+  hasQuests: 1
+  hasLore: 1
+  hasTrade: 0
+  hasGeneralChat: 1

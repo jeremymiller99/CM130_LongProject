@@ -21,9 +21,12 @@ MonoBehaviour:
   repRewardOnTime: 10
   repRewardLate: 4
   requiredItems:
-  - {fileID: 11400000, guid: 91abb1d0f57af314cac8ac16f2df647f, type: 2}
+  - {fileID: 11400000, guid: 5d3aed26e338b3d439d8e6e57a0a9fea, type: 2}
+  - {fileID: 11400000, guid: 5d3aed26e338b3d439d8e6e57a0a9fea, type: 2}
+  - {fileID: 11400000, guid: 5d3aed26e338b3d439d8e6e57a0a9fea, type: 2}
   consumeItems: 1
-  rewardItems: []
+  rewardItems:
+  - {fileID: 11400000, guid: 553d54ae9225b1a4485b1ca6be2f4d5d, type: 2}
   needItemsMessage: You need the required items to complete this quest.
   hasItemsMessage: You have all the required items!
   completionMessage: Quest Completed

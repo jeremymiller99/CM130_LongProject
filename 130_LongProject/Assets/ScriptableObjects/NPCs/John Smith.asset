@@ -15,19 +15,24 @@ MonoBehaviour:
   npcName: John Smith
   portrait: {fileID: 0}
   greetingDialogue: Hey there!
-  questDialogue: I have something important for you to do.
-  questCompletedDialogue: Thank you for completing my quest!
+  questDialogue: Go out and fetch me 3 pieces of wood. You can find them around the
+    woods.
+  questAcceptDialogue: Thanks, see you back soon.
+  questCompletedDialogue: Good work son, I'll give you some of the processed logs
+    for your machine thing.
   noQuestDialogue: I don't have any tasks for you right now.
+  insufficientRepDialogue: Prove to me I can trust you for this task
+  questInProgressDialogue: Have you completed the task I gave you?
   loreDialogue: One time I tried to eat a whole jar of peanut butter.
   noLoreDialogue: I don't have much to say about that.
   tradeDialogue: Would you like to buy or sell something?
   noTradeDialogue: I'm not trading anything right now.
   generalDialogue: Nice day today!
-  lowRepDialogue: 
-  highRepDialogue: 
-  reputationThreshold: 25
-  assignedQuest: {fileID: 0}
-  hasQuests: 0
+  lowRepDialogue: Hello there
+  highRepDialogue: Hey man! What's up?
+  reputationThreshold: 15
+  assignedQuest: {fileID: 11400000, guid: 6f34d125337d2734498067b505acb815, type: 2}
+  hasQuests: 1
   hasLore: 1
   hasTrade: 0
   hasGeneralChat: 1

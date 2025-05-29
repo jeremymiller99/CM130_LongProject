@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54203f1dedf8e594db7e9badda224267, type: 3}
+  m_Name: JohnSmith_AxeForHire
+  m_EditorClassIdentifier: 
+  questName: Axe For Hire
+  description: Collect 3 logs and bring them to the lumberjack
+  requiredDay: 1
+  requiredTimeZone: Morning
+  autoStart: 0
+  requiredReputation: 15
+  repRewardOnTime: 10
+  repRewardLate: 5
+  requiredItems:
+  - {fileID: 11400000, guid: 87b1a8cadbdccd6498430c38d45cff42, type: 2}
+  - {fileID: 11400000, guid: 87b1a8cadbdccd6498430c38d45cff42, type: 2}
+  - {fileID: 11400000, guid: 87b1a8cadbdccd6498430c38d45cff42, type: 2}
+  consumeItems: 1
+  rewardItems:
+  - {fileID: 11400000, guid: 145cb9d36ce635a439bd5a6d65f20bf5, type: 2}
+  needItemsMessage: You need the required items to complete this quest.
+  hasItemsMessage: You have all the required items! I can complete this quest.
+  completionMessage: Thank you for completing this quest!
