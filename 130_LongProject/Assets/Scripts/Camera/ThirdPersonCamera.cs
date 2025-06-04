@@ -15,6 +15,10 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField] private float minVerticalAngle = -30f;
     [SerializeField] private float maxVerticalAngle = 60f;
     
+    [Header("Starting Rotation")]
+    [SerializeField] private float startingHorizontalAngle = 0f; // 0 = behind player, 90 = right side, -90 = left side
+    [SerializeField] private float startingVerticalAngle = 15f; // Slight downward angle to look at player
+    
     [Header("Camera Collision")]
     [SerializeField] private LayerMask collisionLayers = -1; // What the camera should collide with
     [SerializeField] private float collisionRadius = 0.3f; // Camera collision sphere radius
@@ -41,10 +45,14 @@ public class ThirdPersonCamera : MonoBehaviour
 
         if (target != null)
         {
+            // Initialize rotation values to start behind the player
+            currentRotationX = startingHorizontalAngle + target.eulerAngles.y; // Add player's current facing direction
+            currentRotationY = startingVerticalAngle;
+            
             currentDistance = distance;
             targetDistance = distance;
             transform.position = CalculateCameraPosition();
-            transform.LookAt(target);
+            transform.LookAt(target.position + Vector3.up * height * 0.5f);
         }
 
         Cursor.lockState = CursorLockMode.Locked;
