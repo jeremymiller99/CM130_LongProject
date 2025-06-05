@@ -19,7 +19,7 @@ MonoBehaviour:
   autoStart: 0
   requiredReputation: 10
   repRewardOnTime: 10
-  repRewardLate: 4
+  repRewardLate: 5
   requiredItems:
   - {fileID: 11400000, guid: 5d3aed26e338b3d439d8e6e57a0a9fea, type: 2}
   - {fileID: 11400000, guid: 5d3aed26e338b3d439d8e6e57a0a9fea, type: 2}

@@ -10,19 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54203f1dedf8e594db7e9badda224267, type: 3}
-  m_Name: New Quest Data
+  m_Name: MasonBlack_IronAge
   m_EditorClassIdentifier: 
-  questName: 
-  description: 
-  requiredDay: 0
-  requiredTimeZone: 
+  questName: Iron Age
+  description: Collect 3 stones for Mason, and in return you will get Iron.
+  requiredDay: 1
+  requiredTimeZone: Morning
   autoStart: 0
-  requiredReputation: 0
+  requiredReputation: 20
   repRewardOnTime: 10
   repRewardLate: 5
-  requiredItems: []
+  requiredItems:
+  - {fileID: 11400000, guid: f1f7eb53bdacce84d9095a0442833068, type: 2}
+  - {fileID: 11400000, guid: f1f7eb53bdacce84d9095a0442833068, type: 2}
+  - {fileID: 11400000, guid: f1f7eb53bdacce84d9095a0442833068, type: 2}
   consumeItems: 1
-  rewardItems: []
+  rewardItems:
+  - {fileID: 11400000, guid: 8eb433b9f3aae8d409efdf24dfbad46d, type: 2}
   needItemsMessage: You need the required items to complete this quest.
   hasItemsMessage: You have all the required items! I can complete this quest.
   completionMessage: Thank you for completing this quest!

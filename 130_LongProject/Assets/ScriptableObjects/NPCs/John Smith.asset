@@ -30,7 +30,7 @@ MonoBehaviour:
   generalDialogue: Nice day today!
   lowRepDialogue: Hello there
   highRepDialogue: Hey man! What's up?
-  reputationThreshold: 15
+  reputationThreshold: 10
   assignedQuest: {fileID: 11400000, guid: 6f34d125337d2734498067b505acb815, type: 2}
   hasQuests: 1
   hasLore: 1

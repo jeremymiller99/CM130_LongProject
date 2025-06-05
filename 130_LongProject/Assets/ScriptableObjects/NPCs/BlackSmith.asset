@@ -10,28 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1881585a56cf6e44b10076200d9bd12, type: 3}
-  m_Name: Jane Doe
+  m_Name: BlackSmith
   m_EditorClassIdentifier: 
-  npcName: Jane Doe
+  npcName: Mason Black
   portrait: {fileID: 0}
-  greetingDialogue: Hey there!
-  questDialogue: I could really use a hand making dinner tonight, can you bring me
-    3 wild mushrooms?
-  questAcceptDialogue: Great! Be sure to come back to me when you've collected everything.
-  questCompletedDialogue: Thanks so much! I'll be sure to give you the leftovers.
+  greetingDialogue: Eh
+  questDialogue: Help me out son, will ya?
+  questAcceptDialogue: Thank you, my boy
+  questCompletedDialogue: Good work. Here is your reward
   noQuestDialogue: I don't have any tasks for you right now.
-  insufficientRepDialogue: I don't know you well enough to trust you with this task.
+  insufficientRepDialogue: Take on other jobs before coming to me.
   questInProgressDialogue: Have you completed the task I gave you?
-  loreDialogue: My grandma once told me long ago an evil power cursed this town,
-    that crazy old hag!
+  loreDialogue: There are myths of a man who once built a flying machine to escape
+    this town. I don't believe it.
   noLoreDialogue: I don't have much to say about that.
   tradeDialogue: Would you like to buy or sell something?
   noTradeDialogue: I'm not trading anything right now.
-  generalDialogue: Nice day today!
-  lowRepDialogue: Hello, how are you doing?
-  highRepDialogue: Hey!
-  reputationThreshold: 5
-  assignedQuest: {fileID: 11400000, guid: 686c48967a5bd2e4d84f08dfbc5dd07c, type: 2}
+  generalDialogue: You must have balls of steel trying to travel over the mountains.
+  lowRepDialogue: Eh, what is it?
+  highRepDialogue: Hey! How can I help you
+  reputationThreshold: 20
+  assignedQuest: {fileID: 11400000, guid: 69bc23d29b7828849ac606fa0498e8e0, type: 2}
   hasQuests: 1
   hasLore: 1
   hasTrade: 0
